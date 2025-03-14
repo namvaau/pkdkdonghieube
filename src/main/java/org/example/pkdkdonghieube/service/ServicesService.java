@@ -3,6 +3,7 @@ package org.example.pkdkdonghieube.service;
 import org.example.pkdkdonghieube.dto.ServiceDetailDTO;
 import org.example.pkdkdonghieube.entity.ServiceDetail;
 import org.example.pkdkdonghieube.entity.Services;
+import org.example.pkdkdonghieube.entity.Specialty;
 import org.example.pkdkdonghieube.repository.ServiceDetailRepository;
 import org.example.pkdkdonghieube.repository.ServiceRepository;
 import org.springframework.stereotype.Service;
@@ -35,4 +36,11 @@ public class ServicesService {
                 .collect(Collectors.toList());
     }
 
+    public Services saveService(Services service) {
+        return serviceRepository.save(service);
+    }
+
+    public List<Services> saveAll(List<Services> services) {
+        return serviceRepository.saveAll(services);
+    }
 }

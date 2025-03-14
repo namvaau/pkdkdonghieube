@@ -5,10 +5,8 @@ import org.example.pkdkdonghieube.dto.NewsDetailDTO;
 import org.example.pkdkdonghieube.entity.News;
 import org.example.pkdkdonghieube.entity.NewsDetail;
 import org.example.pkdkdonghieube.service.NewsService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +27,11 @@ public class NewsController {
     @GetMapping("/{id}/details")
     public List<NewsDetailDTO> getNewsDetailsByNewsId(@PathVariable Long id) {
         return newsService.getNewsDetailsByNewsId(id);
+    }
+
+    @PostMapping
+    public ResponseEntity<News> createNews(@RequestBody News news) {
+        News savedNews = newsService.createNews(news);
+        return ResponseEntity.ok(savedNews);
     }
 }

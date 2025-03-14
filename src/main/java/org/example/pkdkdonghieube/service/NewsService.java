@@ -66,4 +66,8 @@ public class NewsService {
                 ))
                 .collect(Collectors.toList());
     }
+
+    public News createNews(News news) {
+        return newsRepository.save(news);
+    }
 }

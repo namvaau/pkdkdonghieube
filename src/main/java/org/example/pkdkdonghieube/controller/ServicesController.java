@@ -4,6 +4,7 @@ import org.example.pkdkdonghieube.dto.ServiceDTO;
 import org.example.pkdkdonghieube.dto.ServiceDetailDTO;
 import org.example.pkdkdonghieube.entity.ServiceDetail;
 import org.example.pkdkdonghieube.entity.Services;
+import org.example.pkdkdonghieube.entity.Specialty;
 import org.example.pkdkdonghieube.mapper.ServiceMapper;
 import org.example.pkdkdonghieube.service.ServicesService;
 import org.springframework.http.ResponseEntity;
@@ -40,6 +41,18 @@ public class ServicesController {
     public List<ServiceDetailDTO> getServiceDetailsByServiceId(@PathVariable Long id) {
         List<ServiceDetailDTO> details = serviceService.getServiceDetailsByServiceId(id);
         return (details);
+    }
+
+    @PostMapping
+    public ResponseEntity<Services> createService(@RequestBody Services service) {
+        Services savedService = serviceService.saveService(service);
+        return ResponseEntity.ok(savedService);
+    }
+
+    @PostMapping("/bulk")
+    public ResponseEntity<List<Services>> createService(@RequestBody List<Services> specialties) {
+        List<Services> savedSpecialties = serviceService.saveAll(specialties);
+        return ResponseEntity.ok(savedSpecialties);
     }
 
 }

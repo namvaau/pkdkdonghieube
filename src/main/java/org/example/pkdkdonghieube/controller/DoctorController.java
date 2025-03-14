@@ -2,9 +2,8 @@ package org.example.pkdkdonghieube.controller;
 
 import org.example.pkdkdonghieube.entity.Doctor;
 import org.example.pkdkdonghieube.service.DoctorService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,5 +19,11 @@ public class DoctorController {
     @GetMapping
     public List<Doctor> getAllDoctors() {
         return doctorService.getAllDoctors();
+    }
+
+    @PostMapping
+    public ResponseEntity<Doctor> createDoctor(@RequestBody Doctor doctor) {
+        Doctor savedDoctor = doctorService.saveDoctor(doctor);
+        return ResponseEntity.ok(savedDoctor);
     }
 }
