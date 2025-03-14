@@ -14,6 +14,7 @@ public class CorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**") // Áp dụng cho tất cả API
                         .allowedOrigins("http://localhost:5173") // Cho phép React truy cập
+                        .allowedOrigins("https://pkdakhoadonghieu.netlify.app")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Cho phép các phương thức HTTP
                         .allowedHeaders("*")
                         .allowCredentials(true);
