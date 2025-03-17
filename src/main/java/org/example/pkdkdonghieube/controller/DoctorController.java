@@ -26,4 +26,18 @@ public class DoctorController {
         Doctor savedDoctor = doctorService.saveDoctor(doctor);
         return ResponseEntity.ok(savedDoctor);
     }
+
+    @PatchMapping("/{id}/description")
+    public ResponseEntity<Doctor> updateDoctorDescription(@PathVariable Long id, @RequestBody String newDescription) {
+        Doctor updatedDoctor = doctorService.updateDoctorDescription(id, newDescription);
+        return ResponseEntity.ok(updatedDoctor);
+    }
+
+    @PatchMapping("/{id}/speciality")
+    public ResponseEntity<Doctor> updateSpeciality(@PathVariable Long id, @RequestBody String speciality) {
+        Doctor updatedDoctor = doctorService.updateSpeciality(id, speciality);
+        return ResponseEntity.ok(updatedDoctor);
+    }
+
+
 }

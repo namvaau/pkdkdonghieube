@@ -28,6 +28,7 @@ public class ServiceMapper {
         dto.setId(detail.getId());
         dto.setDetail(detail.getDetail());
         dto.setPrice(detail.getPrice());
+        dto.setInsurancePrice(detail.getInsurancePrice());
         return dto;
     }
 }

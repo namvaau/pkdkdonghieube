@@ -9,13 +9,27 @@ public class ServiceDetailDTO {
     private Long id;
     private String detail;
     private Double price;
-
+    private Double insurancePrice;
     public ServiceDetailDTO() {
     }
 
     public ServiceDetailDTO(String detail, Double price) {
         this.detail = detail;
         this.price = price;
+    }
+
+    public ServiceDetailDTO(String detail, Double price, Double insurancePrice) {
+        this.detail = detail;
+        this.price = price;
+        this.insurancePrice = insurancePrice;
+    }
+
+    public Double getInsurancePrice() {
+        return insurancePrice;
+    }
+
+    public void setInsurancePrice(Double insurancePrice) {
+        this.insurancePrice = insurancePrice;
     }
 
     public Long getId() {

@@ -13,13 +13,15 @@ public class Doctor {
     private String name;
     private int experience;
     private String description;
+    private String imageUrl;
+    private String speciality;
 
-    public Specialty getSpecialty() {
-        return specialty;
+    public String getSpeciality() {
+        return speciality;
     }
 
-    public void setSpecialty(Specialty specialty) {
-        this.specialty = specialty;
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
     }
 
     public Long getId() {
@@ -54,7 +56,11 @@ public class Doctor {
         this.description = description;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "specialty_id")
-    private Specialty specialty;
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 }

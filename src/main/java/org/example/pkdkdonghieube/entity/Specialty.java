@@ -46,15 +46,4 @@ public class Specialty {
     public void setName(String name) {
         this.name = name;
     }
-
-    public List<Doctor> getDoctors() {
-        return doctors;
-    }
-
-    public void setDoctors(List<Doctor> doctors) {
-        this.doctors = doctors;
-    }
-
-    @OneToMany(mappedBy = "specialty", cascade = CascadeType.ALL)
-    private List<Doctor> doctors;
 }

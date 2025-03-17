@@ -32,7 +32,7 @@ public class ServicesService {
     public List<ServiceDetailDTO> getServiceDetailsByServiceId(Long serviceId) {
         List<ServiceDetail> details = serviceDetailRepository.findByServiceId(serviceId);
         return details.stream()
-                .map(detail -> new ServiceDetailDTO(detail.getDetail(), detail.getPrice()))
+                .map(detail -> new ServiceDetailDTO(detail.getDetail(), detail.getPrice(), detail.getInsurancePrice()))
                 .collect(Collectors.toList());
     }
 

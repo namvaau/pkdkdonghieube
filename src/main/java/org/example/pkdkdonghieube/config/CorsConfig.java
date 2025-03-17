@@ -13,8 +13,11 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**") // Áp dụng cho tất cả API
-                        .allowedOrigins("https://pkdakhoadonghieu.netlify.app/") // Cho phép React truy cập
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Cho phép các phương thức HTTP
+                        .allowedOrigins(
+                                "http://localhost:5173",
+                                "https://pkdakhoadonghieu.netlify.app"
+                        ) // Cho phép nhiều origin
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Các phương thức HTTP được phép
                         .allowedHeaders("*")
                         .allowCredentials(true);
             }
