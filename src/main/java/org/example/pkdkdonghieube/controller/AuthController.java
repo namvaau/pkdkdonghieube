@@ -22,7 +22,7 @@ public class AuthController {
         String username = request.get("username");
         String password = request.get("password");
 
-        String storedHashedPassword = passwordEncoder.encode("hd200881");
+        String storedHashedPassword = passwordEncoder.encode("pkdkdh2025");
 
         if ("admin".equals(username) && passwordEncoder.matches(password, storedHashedPassword)) {
             String token = jwtUtil.generateToken(username, "admin");
